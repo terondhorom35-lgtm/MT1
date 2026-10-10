@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manufacturing Technology-I | Online Assessment</title>
+<style>
+:root{--navy:#12304a;--blue:#1769aa;--light:#f3f7fb;--line:#d7e0e8;--ink:#1d2b36;--green:#16794b;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--light);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.5}
+header{background:var(--navy);color:#fff;padding:20px 16px}header .wrap,main{max-width:980px;margin:auto}header h1{margin:0;font-size:1.45rem}header p{margin:5px 0 0;color:#dce8f2}
+main{padding:22px 14px 44px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin:0 0 18px;box-shadow:0 3px 12px #17324d0a}
+h2{font-size:1.2rem;margin:0 0 14px;color:var(--navy)}h3{font-size:1rem;margin:0 0 10px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.pill{background:#eaf2fa;border:1px solid #cddded;border-radius:30px;padding:5px 11px;font-size:.9rem}
+label{display:block;font-weight:600;margin:12px 0 5px}input[type=text],input[type=number],select{width:100%;padding:11px;border:1px solid #aebdca;border-radius:7px;font-size:1rem;background:white}
+button{border:0;border-radius:7px;padding:11px 17px;font-size:1rem;font-weight:700;cursor:pointer;background:var(--blue);color:#fff}button.secondary{background:#e7edf3;color:var(--navy)}button.danger{background:var(--red)}button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}.muted{color:#536575;font-size:.92rem}.hidden{display:none!important}.notice{border-left:4px solid #c58b19;background:#fff8e8;padding:12px 14px;border-radius:5px;margin:12px 0}.error{color:var(--red);font-weight:600}.progress{height:8px;background:#e4ebf1;border-radius:8px;overflow:hidden;margin:12px 0}.progress>div{height:100%;background:var(--blue);width:0}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#536575;font-size:.9rem}.question{font-size:1.12rem;font-weight:700;margin:14px 0}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:11px;margin:8px 0;font-weight:400;cursor:pointer}.option input{margin-top:5px}.option:hover{background:#f6faff}
+.diagram{background:#fbfdff;border:1px solid var(--line);border-radius:9px;padding:12px;margin:12px 0;text-align:center}.diagram svg{width:100%;max-width:620px;height:auto}.diagram-caption{font-size:.9rem;color:#536575}
+select.blank{display:inline-block;width:auto;min-width:160px;max-width:100%;margin:5px}
+#timer{font-variant-numeric:tabular-nums;font-weight:800;color:var(--navy);font-size:1.1rem}.warning-count{color:var(--red);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.94rem}th,td{border:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{background:#edf3f8}
+.signature{height:70px;border-bottom:1px solid #263746;margin:26px 0 6px}.signrow{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:25px}.small{font-size:.82rem}
+footer{text-align:center;color:#607080;font-size:.83rem;padding:16px}
+@media(max-width:600px){.card{padding:16px}.signrow{grid-template-columns:1fr}header h1{font-size:1.2rem}}
+@media print{body{background:white}.no-print,header{display:none!important}.card{box-shadow:none;border:0}.signature{height:55px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Manufacturing Technology-I</h1><p>Online Assessment • Non-Traditional Machining Processes</p></div></header>
+<main>
+<section id="login" class="card">
+<h2>Student Login</h2>
+<p class="muted">Enter your details before starting. The assessment is designed for 20 marks and 45 minutes.</p>
+<div class="meta"><span class="pill"><b>Course Outcome:</b> CO5</span><span class="pill"><b>Instructional Learning Outcome:</b> ILO9</span><span class="pill"><b>Maximum Marks:</b> 20</span><span class="pill"><b>Duration:</b> 45 minutes</span></div>
+<div class="row">
+<div style="flex:1;min-width:220px"><label for="studentName">Student name *</label><input id="studentName" type="text" autocomplete="name" required placeholder="Enter full name"></div>
+<div style="flex:1;min-width:180px"><label for="rollNo">Roll number *</label><input id="rollNo" type="text" required placeholder="Enter roll number"></div>
+</div>
+<div class="row">
+<div style="flex:1;min-width:220px"><label for="semester">Semester / Class *</label><input id="semester" type="text" required placeholder="e.g. 5th Semester"></div>
+<div style="flex:1;min-width:180px"><label for="section">Branch / Section</label><input id="section" type="text" placeholder="Mechanical Engineering"></div>
+</div>
+<div class="notice"><b>Assessment instructions</b><ul>
+<li>There are 20 questions worth 1 mark each. One question is shown at a time.</li>
+<li>Questions are shuffled for each attempt. Select or enter one answer, then use Next/Previous.</li>
+<li>The timer starts when you begin. The test submits automatically when time expires.</li>
+<li>Tab switching, leaving the page, exiting full screen, and right-click/copy actions may be logged as integrity warnings. These browser controls cannot guarantee prevention of cheating.</li>
+<li>Use only your own knowledge. Do not refresh or close the page during the assessment.</li>
+</ul></div>
+<label><input id="agree" type="checkbox"> I have read the instructions and agree to the assessment rules.</label>
+<p id="loginError" class="error hidden">Please enter your name, roll number, semester/class and agree to the instructions.</p>
+<button id="startBtn">Start Assessment</button>
+</section>
+
+<section id="exam" class="hidden">
+<div class="card">
+<div class="row"><div><b>CO5 • ILO9</b><div class="muted" id="studentLine"></div></div><div>Time remaining: <span id="timer">45:00</span></div></div>
+<div class="progress"><div id="progressBar"></div></div>
+<div class="qhead"><span id="questionCounter">Question 1 of 20</span><span id="questionType">MCQ</span><span>1 mark</span></div>
+<div id="questionArea"></div>
+<div class="row" style="margin-top:20px"><button class="secondary" id="prevBtn">Previous</button><span class="muted" id="answeredCount">Answered: 0/20</span><button id="nextBtn">Next</button></div>
+<div class="row" style="margin-top:18px;border-top:1px solid var(--line);padding-top:16px"><span class="muted">Warnings recorded: <span id="warningCount" class="warning-count">0</span></span><button class="danger" id="submitBtn">Submit Assessment</button></div>
+</div>
+<div class="muted">Please submit only when you have reviewed your answers. Submission is final.</div>
+</section>
+
+<section id="result" class="hidden">
+<div class="card" id="reportContent">
+<h2>Assessment Submission Report</h2>
+<p><b>Manufacturing Technology-I — Non-Traditional Machining Processes</b></p>
+<div class="meta"><span class="pill">CO5</span><span class="pill">ILO9</span><span class="pill">20 Marks</span><span class="pill">45 Minutes</span></div>
+<div id="resultSummary"></div>
+<h3>Response details</h3><div id="responseTable"></div>
+<div class="signrow"><div><div class="signature"></div><b>Student Signature</b><div class="small">Sign after printing the report</div></div><div><div class="signature"></div><b>Class Teacher's Signature</b><div class="small">Marks verified by class teacher</div></div></div>
+<p class="small muted">Generated by the browser assessment page. The PDF is a student response record; it is not a server-verified or institutionally authenticated document.</p>
+</div>
+<div class="card no-print">
+<h2>Submission complete</h2><p id="finalMessage"></p>
+<p id="emailStatus" class="muted">Preparing the emailed PDF report…</p>
+<div class="row"><button id="downloadPdf">Download Response Report (PDF)</button><button class="secondary" id="printReport">Print Report</button></div>
+<p class="muted">The Apps Script backend emails a separate PDF report automatically on submission. If local PDF generation is unavailable, use Print → Save as PDF.</p>
+</div>
+</section>
+</main>
+<footer>Manufacturing Technology-I • Academic assessment interface</footer>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const questions=[
+{type:"MCQ",topic:"Ultrasonic Machining",q:"In Ultrasonic Machining (USM), material is primarily removed by:",opts:["Melting the workpiece with an electric arc","Abrasive particles hammering against the work surface under tool vibration","Chemical dissolution in an etchant","A high-pressure water jet"],a:1,ex:"USM removes material through impact of abrasive grains driven by a vibrating tool."},
+{type:"FILL IN THE BLANK",topic:"Ultrasonic Machining",q:"The tool in USM vibrates at an ultrasonic frequency, generally above ______ kHz.",blank:["20","10","1","100"],a:"20",ex:"Ultrasonic vibration is typically above about 20 kHz."},
+{type:"MCQ",topic:"Ultrasonic Machining",q:"Which is a major advantage of USM?",opts:["It is suitable only for electrically conductive materials","It produces a large heat-affected zone","It can machine hard, brittle, non-conductive materials","It always gives a very high material removal rate"],a:2,ex:"USM can machine hard, brittle materials including non-conductors."},
+{type:"MCQ",topic:"Ultrasonic Machining",q:"A limitation of USM is generally:",opts:["High tool wear and relatively low material removal rate","It cannot machine brittle materials","It requires the workpiece to conduct electricity","It uses no abrasive slurry"],a:0,ex:"Tool wear and relatively low MRR are common limitations."},
+{type:"FILL IN THE BLANK",topic:"Ultrasonic Machining",q:"In USM, abrasive grains are usually carried in a liquid called abrasive ______.",blank:["slurry","dielectric","electrolyte","flux"],a:"slurry",ex:"Abrasives are suspended in a liquid to form a slurry."},
+{type:"MCQ",topic:"Chemical Machining",q:"Chemical Machining removes material mainly by:",opts:["Mechanical cutting by a sharp edge","Controlled chemical dissolution of exposed workpiece areas","Electron bombardment","Ultrasonic cavitation only"],a:1,ex:"Chemical machining uses a chemical etchant to dissolve exposed material."},
+{type:"FILL IN THE BLANK",topic:"Chemical Machining",q:"The protective coating patterned to expose selected areas is called a ______.",blank:["maskant","electrode","dielectric","transducer"],a:"maskant",ex:"A maskant protects areas that should not be etched."},
+{type:"MCQ",topic:"Chemical Machining",q:"Which sequence best represents chemical machining?",opts:["Masking → etching → rinsing/cleaning → maskant removal","Casting → forging → welding → polishing","Electrode setup → spark → flushing only","Heating → melting → solidification"],a:0,ex:"The work is cleaned, masked, selectively etched, rinsed and demasked."},
+{type:"MCQ",topic:"Chemical Machining",q:"A key advantage of Chemical Machining is:",opts:["Large cutting forces are required","No maskant is ever needed","Complex shallow shapes can be produced with little mechanical stress","Only round holes can be produced"],a:2,ex:"It avoids significant cutting forces and can produce intricate shallow profiles."},
+{type:"FILL IN THE BLANK",topic:"Chemical Machining",q:"Chemical machining is generally unsuitable for very deep, narrow cavities because of etchant ______ and undercutting.",blank:["handling","freezing","colour","weight"],a:"undercut",ex:"Lateral etching can cause undercutting; deep features are difficult to control."},
+{type:"MCQ",topic:"EDM",q:"Electrical Discharge Machining (EDM) can machine a workpiece only if it is:",opts:["Transparent","Electrically conductive","Non-metallic in every case","Softer than the tool"],a:1,ex:"Conventional EDM requires an electrically conductive workpiece."},
+{type:"MCQ",topic:"EDM",q:"In a basic EDM circuit, material removal occurs due to:",opts:["Chemical etching without electricity","Repeated electrical sparks between tool and workpiece","A rotating abrasive wheel","Laser reflection"],a:1,ex:"Pulsed discharges create localized heating and erosion."},
+{type:"FILL IN THE BLANK",topic:"EDM",q:"The liquid used to insulate, cool and flush debris in EDM is called the ______ fluid.",blank:["dielectric","masking","abrasive","lubricating"],a:"dielectric",ex:"The dielectric fluid supports discharge conditions, cooling and debris flushing."},
+{type:"MCQ",topic:"EDM",q:"EDM material removal rate is influenced by factors including:",opts:["Spark energy and pulse parameters","The colour of the machine","Only the operator's height","Room lighting alone"],a:0,ex:"Discharge energy, current, pulse-on/off times and material properties affect MRR."},
+{type:"MCQ",topic:"EDM",q:"Which is a typical EDM application?",opts:["Machining intricate dies and moulds","Machining only wood","Food processing","Painting sheet metal"],a:0,ex:"EDM is widely used for dies, moulds and complex conductive parts."},
+{type:"MCQ",topic:"Laser Beam Machining",q:"Laser Beam Machining removes material mainly through:",opts:["Chemical dissolution by acid","Concentrated light energy causing heating, melting and/or vaporization","Abrasive grains in slurry","A mechanical saw blade"],a:1,ex:"A focused laser beam delivers high energy density to the workpiece."},
+{type:"MCQ",topic:"Laser Beam Machining",q:"One advantage of Laser Beam Machining is:",opts:["It always creates no heat-affected zone","It can cut small features without direct tool contact","It can machine only electrically conductive materials","It requires a cutting tool to touch the workpiece"],a:1,ex:"LBM is non-contact and can machine small or intricate features."},
+{type:"FILL IN THE BLANK",topic:"Laser Beam Machining",q:"The laser beam is focused onto the workpiece using an optical ______.",blank:["lens","electrode","maskant","transducer"],a:"lens",ex:"Optics focus the beam to a small, high-energy spot."},
+{type:"MCQ",topic:"Laser Beam Machining",q:"A possible disadvantage of LBM is:",opts:["No energy is consumed","It cannot make small holes","High equipment cost and possible thermal effects","It requires a physical cutting edge"],a:2,ex:"Equipment cost and heat-related effects can be disadvantages."},
+{type:"SCHEMATIC LABEL",topic:"EDM",q:"Label the basic EDM arrangement. Choose the correct component for each numbered label.",diagram:"edm",labels:[{n:1,opts:["Tool electrode","Laser lens","Maskant","Abrasive slurry"],a:"Tool electrode"},{n:2,opts:["Workpiece","Transducer","Etchant tank","Laser source"],a:"Workpiece"},{n:3,opts:["Dielectric fluid","Oxygen nozzle","Chemical mask","Abrasive wheel"],a:"Dielectric fluid"},{n:4,opts:["Pulse power supply","Ultrasonic generator","Etchant heater","Laser mirror"],a:"Pulse power supply"}],a:1,ex:"An EDM setup includes a tool electrode, conductive workpiece, dielectric fluid and pulsed power supply."},
+{type:"SCHEMATIC LABEL",topic:"USM",q:"Label the basic Ultrasonic Machining schematic. Choose the correct component for each numbered label.",diagram:"usm",labels:[{n:1,opts:["Transducer","Workpiece","Dielectric fluid","Maskant"],a:"Transducer"},{n:2,opts:["Vibrating tool","Laser lens","Pulse generator","Etchant"],a:"Vibrating tool"},{n:3,opts:["Abrasive slurry","Dielectric oil only","Electrolyte gas","Coolant-free zone"],a:"Abrasive slurry"},{n:4,opts:["Workpiece","Laser source","Tool electrode","Maskant"],a:"Workpiece"}],a:1,ex:"USM uses a transducer, vibrating tool, abrasive slurry and workpiece."}
+];
+let order=[],answers={},pos=0,seconds=45*60,interval=null,warnings=[],startedAt=null,submitted=false,student={};
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function warn(msg){if(submitted)return;warnings.push({time:new Date().toLocaleTimeString(),event:msg});$("warningCount").textContent=warnings.length;}
+function startExam(){
+ const name=$("studentName").value.trim(),roll=$("rollNo").value.trim(),sem=$("semester").value.trim();
+ if(!name||!roll||!sem||!$("agree").checked){$("loginError").classList.remove("hidden");return;}
+ student={name,roll,semester:sem,section:$("section").value.trim()||"—"};order=shuffle(questions.map((_,i)=>i));pos=0;startedAt=new Date();seconds=45*60;answers={};warnings=[];submitted=false;
+ $("login").classList.add("hidden");$("exam").classList.remove("hidden");$("studentLine").textContent=`${student.name} • Roll ${student.roll} • ${student.semester}`;
+ try{document.documentElement.requestFullscreen?.().catch(()=>{});}catch(e){}
+ interval=setInterval(tick,1000);renderQuestion();
+}
+function tick(){seconds--;let m=Math.floor(Math.max(0,seconds)/60),s=Math.max(0,seconds)%60;$("timer").textContent=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;if(seconds<=0)submitExam(true);}
+function renderDiagram(kind){
+ if(kind==="edm")return `<div class="diagram"><svg viewBox="0 0 600 300" role="img" aria-label="Schematic of EDM with numbered labels"><rect x="30" y="20" width="125" height="58" rx="6" fill="#e8f1fb" stroke="#1769aa" stroke-width="2"/><text x="92" y="44" text-anchor="middle" font-size="13">Pulse power</text><text x="92" y="61" text-anchor="middle" font-size="13">supply (4)</text><path d="M155 48 H220 V88" fill="none" stroke="#333" stroke-width="2"/><rect x="220" y="85" width="110" height="22" fill="#8d9eac" stroke="#263746"/><text x="275" y="77" text-anchor="middle" font-size="14">1</text><path d="M275 107 V143" stroke="#333" stroke-width="2" stroke-dasharray="4 4"/><path d="M260 128 l8 8 -8 8 8 8" fill="none" stroke="#d97706" stroke-width="2"/><rect x="185" y="145" width="180" height="85" rx="4" fill="#dceefa" stroke="#1769aa" stroke-width="2"/><text x="275" y="170" text-anchor="middle" font-size="14">3</text><rect x="220" y="202" width="110" height="18" fill="#536575" stroke="#263746"/><text x="275" y="250" text-anchor="middle" font-size="14">2</text><path d="M365 188 H435 V210" fill="none" stroke="#333" stroke-width="2"/><text x="445" y="227" font-size="13">Tank</text><text x="275" y="282" text-anchor="middle" font-size="13" fill="#536575">Schematic: not to scale</text></svg><div class="diagram-caption">Select the component represented by each numbered label (1–4).</div></div>`;
+ return `<div class="diagram"><svg viewBox="0 0 600 300" role="img" aria-label="Schematic of Ultrasonic Machining with numbered labels"><rect x="220" y="20" width="140" height="48" rx="5" fill="#e8f1fb" stroke="#1769aa" stroke-width="2"/><text x="290" y="40" text-anchor="middle" font-size="13">1</text><text x="290" y="56" text-anchor="middle" font-size="11"> </text><path d="M290 68 V90" stroke="#333" stroke-width="2"/><rect x="245" y="90" width="90" height="20" fill="#8d9eac" stroke="#263746"/><text x="290" y="104" text-anchor="middle" font-size="12">2</text><path d="M290 110 V158" stroke="#333" stroke-width="2"/><path d="M255 148 L265 158 L255 168 L265 178 L255 188 L265 198" stroke="#d97706" fill="none" stroke-width="2"/><rect x="170" y="145" width="240" height="65" rx="4" fill="#dceefa" stroke="#1769aa" stroke-width="2"/><text x="290" y="175" text-anchor="middle" font-size="14">3</text><rect x="205" y="210" width="170" height="22" fill="#536575" stroke="#263746"/><text x="290" y="226" text-anchor="middle" font-size="13" fill="white">4</text><text x="290" y="265" text-anchor="middle" font-size="13" fill="#536575">Schematic: not to scale</text></svg><div class="diagram-caption">Select the component represented by each numbered label (1–4).</div></div>`;
+}
+function renderQuestion(){
+ const q=questions[order[pos]]; $("questionCounter").textContent=`Question ${pos+1} of ${order.length}`;$("questionType").textContent=q.type;$("progressBar").style.width=`${(pos+1)/order.length*100}%`;
+ let h=`<div class="muted">Topic: ${q.topic}</div><div class="question">${q.q}</div>`;
+ if(q.type==="MCQ"){h+=q.opts.map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${answers[order[pos]]===i?"checked":""}><span>${String.fromCharCode(65+i)}. ${o}</span></label>`).join("");}
+ else if(q.type==="FILL IN THE BLANK"){h+=`<label for="fillAnswer">Choose the best answer</label><select id="fillAnswer" class="blank"><option value="">— Select answer —</option>${shuffle(q.blank.map(x=>x)).map(x=>`<option value="${escapeHtml(x)}" ${answers[order[pos]]===x?"selected":""}>${escapeHtml(x)}</option>`).join("")}</select>`;}
+ else {h+=renderDiagram(q.diagram);h+=q.labels.map(l=>`<div><label for="label${l.n}">Label ${l.n}</label><select class="blank" id="label${l.n}" data-label="${l.n}"><option value="">— Select component —</option>${l.opts.map(o=>`<option value="${escapeHtml(o)}" ${answers[order[pos]]?.[l.n]===o?"selected":""}>${escapeHtml(o)}</option>`).join("")}</select></div>`).join("");}
+ $("questionArea").innerHTML=h;
+ $("questionArea").querySelectorAll('input[name="answer"]').forEach(el=>el.addEventListener("change",e=>{answers[order[pos]]=Number(e.target.value);updateAnswered();}));
+ const fill=$("fillAnswer");if(fill)fill.addEventListener("change",e=>{answers[order[pos]]=e.target.value;updateAnswered();});
+ $("questionArea").querySelectorAll("[data-label]").forEach(el=>el.addEventListener("change",()=>{if(!answers[order[pos]]||typeof answers[order[pos]]!=="object")answers[order[pos]]={};answers[order[pos]][el.dataset.label]=el.value;updateAnswered();}));
+ $("prevBtn").disabled=pos===0;$("nextBtn").textContent=pos===order.length-1?"Review / Last question":"Next";updateAnswered();
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function isAnswered(i){let q=questions[i],a=answers[i];if(q.type==="SCHEMATIC LABEL")return a&&q.labels.every(l=>a[l.n]);return a!==undefined&&a!=="";}
+function updateAnswered(){$("answeredCount").textContent=`Answered: ${order.filter(i=>isAnswered(i)).length}/${order.length}`;}
+function scoreQuestion(q,a){if(q.type==="SCHEMATIC LABEL")return q.labels.every(l=>a&&a[l.n]===l.a)?1:0;if(q.type==="MCQ")return a===q.a?1:0;return String(a||"").trim().toLowerCase()===String(q.a).trim().toLowerCase()?1:0;}
+function submitExam(auto=false){
+ if(submitted)return;if(!auto&&!confirm("Submit your assessment now? You cannot change answers after submission."))return;
+ submitted=true;clearInterval(interval);try{if(document.fullscreenElement)document.exitFullscreen?.().catch(()=>{});}catch(e){}
+ const endedAt=new Date(),elapsed=Math.round((endedAt-startedAt)/1000),score=order.reduce((sum,i)=>sum+scoreQuestion(questions[i],answers[i]),0);
+ $("exam").classList.add("hidden");$("result").classList.remove("hidden");
+ $("resultSummary").innerHTML=`<table><tr><th>Student name</th><td>${escapeHtml(student.name)}</td><th>Roll number</th><td>${escapeHtml(student.roll)}</td></tr><tr><th>Semester / Class</th><td>${escapeHtml(student.semester)}</td><th>Branch / Section</th><td>${escapeHtml(student.section)}</td></tr><tr><th>Course outcome</th><td>CO5</td><th>Learning outcome</th><td>ILO9</td></tr><tr><th>Score</th><td><b>${score} / 20 (${(score/20*100).toFixed(1)}%)</b></td><th>Status</th><td>Submitted${auto?" automatically (time expired)":""}</td></tr><tr><th>Started</th><td>${startedAt.toLocaleString()}</td><th>Submitted</th><td>${endedAt.toLocaleString()}</td></tr><tr><th>Time used</th><td>${Math.floor(elapsed/60)} min ${elapsed%60} sec</td><th>Integrity warnings</th><td>${warnings.length}</td></tr></table>`;
+ $("responseTable").innerHTML=`<table><thead><tr><th>#</th><th>Topic / Type</th><th>Question</th><th>Student response</th><th>Correct answer</th><th>Mark</th></tr></thead><tbody>${order.map((i,k)=>{const q=questions[i],a=answers[i];let response;if(q.type==="SCHEMATIC LABEL")response=q.labels.map(l=>`${l.n}: ${(a&&a[l.n])||"Not answered"}`).join("; ");else if(q.type==="MCQ")response=a===undefined?"Not answered":`${String.fromCharCode(65+a)}. ${q.opts[a]}`;else response=a||"Not answered";let correct=q.type==="SCHEMATIC LABEL"?q.labels.map(l=>`${l.n}: ${l.a}`).join("; "):q.type==="MCQ"?`${String.fromCharCode(65+q.a)}. ${q.opts[q.a]}`:q.a;return `<tr><td>${k+1}</td><td>${q.topic}<br><span class="small">${q.type}</span></td><td>${escapeHtml(q.q)}</td><td>${escapeHtml(response)}</td><td>${escapeHtml(correct)}</td><td>${scoreQuestion(q,a)} / 1</td></tr>`;}).join("")}</tbody></table><h3 style="margin-top:20px">Integrity log</h3>${warnings.length?`<table><tr><th>Time</th><th>Event</th></tr>${warnings.map(w=>`<tr><td>${escapeHtml(w.time)}</td><td>${escapeHtml(w.event)}</td></tr>`).join("")}</table>`:"<p>No browser integrity warnings were recorded.</p>"}`;
+ $("finalMessage").textContent=`Assessment submitted. Your score is ${score}/20. A PDF report will be emailed automatically if this page is running as a deployed Google Apps Script web app.`;
+ // Send report from GitHub Pages to the Google Apps Script doPost endpoint.
+ const payload = {
+   student: student,
+   score: score,
+   maxScore: 20,
+   startedAt: startedAt ? startedAt.toISOString() : "",
+   submittedAt: endedAt.toISOString(),
+   elapsedSeconds: elapsed,
+   autoSubmitted: !!auto,
+   warnings: warnings,
+   responses: order.map((i,k) => {
+     const q = questions[i], a = answers[i];
+     let response;
+     if (q.type === "SCHEMATIC LABEL") response = q.labels.map(l => `${l.n}: ${(a && a[l.n]) || "Not answered"}`).join("; ");
+     else if (q.type === "MCQ") response = a === undefined ? "Not answered" : `${String.fromCharCode(65+a)}. ${q.opts[a]}`;
+     else response = a || "Not answered";
+     const correct = q.type === "SCHEMATIC LABEL" ? q.labels.map(l => `${l.n}: ${l.a}`).join("; ") : q.type === "MCQ" ? `${String.fromCharCode(65+q.a)}. ${q.opts[q.a]}` : q.a;
+     return { number:k+1, topic:q.topic, type:q.type, question:q.q, response:response, correctAnswer:correct, marks:scoreQuestion(q,a) };
+   })
+ };
+ $("emailStatus").textContent = "Submitting report to Google Apps Script. Please allow a few seconds…";
+ const postUrl = "https://script.google.com/macros/s/AKfycbzxYq0MDazYDtZtab4d_IxKoBb-7NPOfa6aUypT-UGjvFDyKv8xDa4FlKQRgqO2J_nn/exec";
+ try {
+   const form = document.createElement("form");
+   form.method = "POST";
+   form.action = postUrl;
+   form.target = "gasReportFrame";
+   form.style.display = "none";
+   const field = document.createElement("input");
+   field.type = "hidden";
+   field.name = "payload";
+   field.value = JSON.stringify(payload);
+   form.appendChild(field);
+   let frame = document.getElementById("gasReportFrame");
+   if (!frame) {
+     frame = document.createElement("iframe");
+     frame.name = "gasReportFrame";
+     frame.id = "gasReportFrame";
+     frame.style.display = "none";
+     document.body.appendChild(frame);
+   }
+   document.body.appendChild(form);
+   form.submit();
+   form.remove();
+   $("emailStatus").textContent = "Submission sent to the email service. If the backend is configured correctly, the PDF will be emailed shortly. If no email arrives, check the Apps Script Executions log and confirm Code.gs includes doPost().";
+ } catch (err) {
+   $("emailStatus").textContent = "Could not send the report: " + err.message;
+   $("emailStatus").classList.add("error");
+ }
+}
+$("startBtn").addEventListener("click",startExam);
+$("prevBtn").addEventListener("click",()=>{if(pos>0){pos--;renderQuestion();}});
+$("nextBtn").addEventListener("click",()=>{if(pos<order.length-1){pos++;renderQuestion();}else alert("You are on the last question. Review your responses or submit the assessment.");});
+$("submitBtn").addEventListener("click",()=>submitExam(false));
+document.addEventListener("visibilitychange",()=>{if(!document.hidden||submitted||$("exam").classList.contains("hidden"))return;warn("Page/tab became hidden or student switched away");alert("Integrity warning: switching away from the assessment has been recorded.");});
+window.addEventListener("blur",()=>{if(!submitted&&!$("exam").classList.contains("hidden"))warn("Assessment window lost focus / possible window switch");});
+document.addEventListener("fullscreenchange",()=>{if(!submitted&&!$("exam").classList.contains("hidden")&&!document.fullscreenElement){warn("Exited full-screen mode");alert("Integrity warning: full-screen mode was exited and recorded.");}});
+document.addEventListener("contextmenu",e=>{if(!$("exam").classList.contains("hidden")){e.preventDefault();warn("Right-click attempt");}});
+document.addEventListener("copy",e=>{if(!$("exam").classList.contains("hidden")){e.preventDefault();warn("Copy attempt");}});
+document.addEventListener("keydown",e=>{if(!$("exam").classList.contains("hidden")&&(e.ctrlKey||e.metaKey)&&(e.key.toLowerCase()==="c"||e.key.toLowerCase()==="p"||e.key.toLowerCase()==="s")){e.preventDefault();warn(`Blocked keyboard shortcut: ${e.key}`);}});
+$("downloadPdf").addEventListener("click",async()=>{
+ const original=$("reportContent");
+ if(window.jspdf&&window.jspdf.jsPDF){try{const {jsPDF}=window.jspdf;const doc=new jsPDF({orientation:"landscape",unit:"mm",format:"a4"});doc.setFontSize(16);doc.text("Manufacturing Technology-I — Assessment Report",14,15);doc.setFontSize(10);doc.text(`Student: ${student.name} | Roll: ${student.roll} | Class: ${student.semester}`,14,23);doc.text(`CO5 | ILO9 | Score: ${$("resultSummary").innerText.match(/Score\\s*([\\s\\S]*?Status)/)?.[1]?.replace(/\\s+/g," ")||"See report"} | Generated: ${new Date().toLocaleString()}`,14,29);doc.autoTable({html:$("responseTable").querySelector("table"),startY:35,styles:{fontSize:7,cellPadding:1.5,overflow:"linebreak"},headStyles:{fillColor:[18,48,74]}});let y=(doc.lastAutoTable?.finalY||35)+12;if(y>165){doc.addPage();y=20;}doc.setFontSize(10);doc.text("Student Signature: ______________________________",14,y);doc.text("Class Teacher's Signature: ______________________________",155,y);doc.text("Note: Browser-generated report; not server-verified.",14,y+9);doc.save(`MT1_Assessment_${student.roll.replace(/[^a-z0-9_-]/gi,"_")}.pdf`);return;}catch(err){console.error(err);}}
+ window.print();
+});
+$("printReport").addEventListener("click",()=>window.print());
+</script>
+<!-- jsPDF + AutoTable are used only to create the downloadable PDF. A network connection is needed for this CDN option. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</body></html>
